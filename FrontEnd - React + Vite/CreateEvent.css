@@ -1,0 +1,333 @@
+/* CreateEvent.css */
+:root {
+  --primary-pink: #ff99cc;
+  --secondary-pink: #ffb3d9;
+  --background-gradient: linear-gradient(135deg, #fff0f5 0%, #ffe6ee 100%);
+  --input-border: #ffccdd;
+  --input-focus: #ff66b2;
+  --shadow-color: rgba(255, 153, 204, 0.3);
+  --dark-pink: #d5006d; /* Dark pink color for text */
+}
+
+.create-event-container {
+  font-family:'Dancing Script', cursive;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--background-gradient);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 4px 15px rgba(255, 153, 204, 0.3); /* Add shadow like homepage */
+  
+}
+
+.create-event-content {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(255, 153, 204, 0.15);
+  z-index: 10;
+  animation: fadeInUp 0.8s ease;
+}
+
+.create-event-content h1 {
+  font-family: 'Dancing Script', cursive;
+  color: var(--primary-pink);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.create-event-content > p {
+  text-align: center;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+/* Step indicator */
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.step {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+  font-weight: bold;
+  color: #888;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 16px;
+  height: 2px;
+  background-color: #f0f0f0;
+  transform: translateY(-50%);
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+.step.active {
+  background-color: var(--primary-pink);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.step.completed {
+  background-color: var(--secondary-pink);
+  color: white;
+}
+
+.step.completed::after {
+  background-color: var(--secondary-pink);
+}
+
+/* Form styling */
+.event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align all form elements */
+}
+
+/* Styles for the larger input fields */
+.small-input {
+  width: 90%; /* or any suitable width less than 100% */
+  max-width: 600px; /* Increased width */
+  margin: 0 auto; /* Center them */
+  padding: 16px 20px; /* Increased padding for larger input boxes */
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+  font-size: 1.2rem; /* Increased font size */
+  color: var(--dark-pink); /* Dark pink color for text */
+}
+
+/* Center the button wrapper */
+.button-wrapper {
+  display: flex; /* Use flex to center the button */
+  justify-content: space-between; /* Space between buttons */
+  margin-top: 20px; /* Space above the button */
+}
+
+/* Form Navigation */
+.form-navigation {
+  display: flex;
+  justify-content: center; /* Centers the entire navigation */
+  margin-top: 2rem;
+  gap: 10px; /* Adds space between buttons */
+}
+
+.form-step {
+  animation: fadeInRight 0.5s ease;
+}
+
+.form-step h3 {
+  color: var(--primary-pink);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  width: 100%; /* Ensure full width for form groups */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align labels and inputs */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  margin-right: 0.5rem;
+  color: var(--primary-pink);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 16px 20px; /* Increased padding for larger input boxes */
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+  font-size: 1.2rem; /* Increased font size */
+  color: var(--dark-pink); /* Dark pink color for text */
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(255, 153, 204, 0.2);
+}
+
+.file-input {
+  padding: 10px 0;
+  width: 100%; /* Align with other input fields */
+  max-width: 400px; /* Increased width */
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+  font-size: 1.2rem; /* Increased font size */
+  color: var(--dark-pink); /* Dark pink color for text */
+}
+
+.image-preview {
+  margin-top: 1rem;
+  max-width: 100%;
+  text-align: center;
+}
+
+.image-preview img {
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Event Preview */
+.event-preview {
+  margin-top: 2rem;
+  border-top: 1px dashed #ddd;
+  padding-top: 1.5rem;
+  width: 90%; /* Align with other input fields */
+  max-width: 400px; /* Increased width */
+  margin: 0 auto; /* Center the event preview */
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+  font-size: 1.2rem; /* Increased font size */
+  color: var(--dark-pink); /* Dark pink color for text */
+}
+
+.event-preview h4 {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.preview-card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-image {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.preview-image img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+}
+
+.preview-details h3 {
+  color: var(--primary-pink);
+  margin-bottom: 0.8rem;
+}
+
+.preview-details p {
+  margin-bottom: 0.5rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.preview-details p svg {
+  margin-right: 0.5rem;
+  color: var(--primary-pink);
+}
+
+.preview-description {
+  font-style: italic;
+  color: #888;
+  margin-top: 1rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .create-event-content {
+    padding: 1.5rem;
+  }
+
+  .form-navigation {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .prev-btn, .next-btn, .submit-btn {
+    width: 100%;
+  }
+
+  .preview-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .step {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .step::after {
+    width: 10px;
+  }
+
+  .create-event-content h1 {
+    font-size: 1.8rem;
+  }
+}

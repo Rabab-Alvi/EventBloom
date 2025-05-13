@@ -1,0 +1,37 @@
+/* App.css */
+:root {
+  --primary-pink: #ff99cc;
+  --secondary-pink: #ffb3d9;
+  --background-gradient: linear-gradient(135deg, #fff0f5 0%, #ffe6ee 100%);
+}
+
+.app-container {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background-gradient);
+  overflow: hidden;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.flower, .leaf {
+  position: fixed;
+  animation: fall 5s linear infinite;
+  filter: hue-rotate(-10deg);
+}
+
+.flower::before { content: '🌸'; }
+.leaf::before { content: '🌺'; }
+
+@keyframes fall {
+  from { top: -10%; transform: translateY(0) rotate(0deg); }
+  to { top: 110%; transform: translateY(0) rotate(360deg); }
+}
+
+.protected-route-message {
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary-pink);
+  font-size: 1.2rem;
+  font-family: 'Dancing Script', cursive;
+}

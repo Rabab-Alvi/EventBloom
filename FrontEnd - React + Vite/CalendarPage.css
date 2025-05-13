@@ -1,0 +1,384 @@
+.calendar-container {
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe6ee 100%);
+  }
+  
+  .calendar-container h1 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    color: #ff99cc;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 15px rgba(255, 153, 204, 0.3);
+  }
+  
+  .calendar-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(255, 153, 204, 0.15);
+  }
+  
+  .calendar-content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  .calendar-left {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .calendar-right {
+    flex: 1;
+    min-width: 300px;
+    border-left: 2px dashed #ffcce6;
+    padding-left: 2rem;
+  }
+  
+  .bloom-calendar {
+    border: 2px solid #ffe6ee;
+    border-radius: 15px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+  }
+  
+  .bloom-calendar .react-calendar__tile {
+    position: relative;
+    padding: 1.5em 0.5em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .bloom-calendar .react-calendar__tile:hover {
+    background: #fff0f5 !important;
+  }
+  
+  .bloom-calendar .react-calendar__tile--now {
+    background: #ffd9e6;
+  }
+  
+  .bloom-calendar .react-calendar__tile--active {
+    background: #ff99cc !important;
+    color: white;
+  }
+  
+  .bloom-calendar .react-calendar__navigation button {
+    color: #ff66b2;
+    font-weight: bold;
+  }
+  
+  .bloom-calendar .react-calendar__navigation button:hover {
+    background: #ffecf5;
+  }
+  
+  .bloom-calendar .react-calendar__navigation button:disabled {
+    background: #f8f8f8;
+  }
+  
+  .bloom-calendar .react-calendar__month-view__weekdays {
+    color: #ff66b2;
+    font-weight: bold;
+  }
+  
+  .day-events {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3px;
+  }
+  
+  .event-marker {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  .event-marker.upcoming { 
+    background: #ff99cc; 
+    animation: pulse 2s infinite;
+  }
+  
+  .event-marker.ongoing { 
+    background: #ff6b6b; 
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  .event-marker.completed { 
+    background: #c0c0c0; 
+  }
+  
+  .calendar-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+  }
+  
+  .legend-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  
+  .legend-marker.upcoming {
+    background: #ff99cc;
+  }
+  
+  .legend-marker.ongoing {
+    background: #ff6b6b;
+  }
+  
+  .legend-marker.completed {
+    background: #c0c0c0;
+  }
+  
+  /* Right panel styles */
+  .selected-date h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #ff66b2;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-shadow: 0 2px 8px rgba(255, 153, 204, 0.2);
+  }
+  
+  .no-events-message {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border: 1px dashed #ffcce6;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: #ff99cc;
+  }
+  
+  .date-events {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .date-event-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(255, 153, 204, 0.1);
+    position: relative;
+    border-left: 5px solid #ff99cc;
+    transition: all 0.3s ease;
+  }
+  
+  .date-event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 153, 204, 0.15);
+  }
+  
+  .date-event-card.upcoming {
+    border-left-color: #ff99cc;
+  }
+  
+  .date-event-card.ongoing {
+    border-left-color: #ff6b6b;
+  }
+  
+  .date-event-card.completed {
+    border-left-color: #c0c0c0;
+  }
+  
+  .date-event-card h3 {
+    font-family: 'Dancing Script', cursive;
+    color: #ff66b2;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .event-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .event-info {
+    margin-bottom: 1rem;
+  }
+  
+  .event-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: #666;
+  }
+  
+  .event-icon {
+    color: #ff99cc;
+    margin-right: 0.5rem;
+  }
+  
+  .event-description {
+    margin: 1rem 0;
+    font-style: italic;
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .event-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+  }
+  
+  .register-btn {
+    background: linear-gradient(135deg, #ff99cc 0%, #ff66b2 100%);
+    color: white;
+  }
+  
+  .register-btn:hover {
+    background: linear-gradient(135deg, #ff66b2 0%, #ff3399 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 102, 178, 0.3);
+  }
+  
+  .registered-btn {
+    background: #f0f0f0;
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  .event-status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .date-event-card.upcoming .event-status-badge {
+    background: #ffecf5;
+    color: #ff66b2;
+  }
+  
+  .date-event-card.ongoing .event-status-badge {
+    background: #fff0f0;
+    color: #ff6b6b;
+  }
+  
+  .date-event-card.completed .event-status-badge {
+    background: #f0f0f0;
+    color: #777;
+  }
+  
+  /* Animations */
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes glow {
+    from { box-shadow: 0 0 5px #ff6b6b; }
+    to { box-shadow: 0 0 10px #ff6b6b, 0 0 15px #ff6b6b; }
+  }
+  
+  /* Scrollbar styling */
+  .date-events::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .date-events::-webkit-scrollbar-track {
+    background: #ffecf5;
+    border-radius: 10px;
+  }
+  
+  .date-events::-webkit-scrollbar-thumb {
+    background: #ffb3d9;
+    border-radius: 10px;
+  }
+  
+  .date-events::-webkit-scrollbar-thumb:hover {
+    background: #ff99cc;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .calendar-content {
+      flex-direction: column;
+    }
+    
+    .calendar-right {
+      border-left: none;
+      border-top: 2px dashed #ffcce6;
+      padding-left: 0;
+      padding-top: 2rem;
+      margin-top: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .calendar-container h1 {
+      font-size: 2.2rem;
+    }
+    
+    .calendar-wrapper {
+      padding: 1rem;
+    }
+    
+    .bloom-calendar .react-calendar__tile {
+      padding: 0.8em 0.5em;
+    }
+    
+    .selected-date h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .calendar-legend {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+  }

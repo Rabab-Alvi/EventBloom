@@ -1,0 +1,41 @@
+/* Smooth flower animations */
+.falling-flower {
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  top: -10%;
+  transform: translateY(0);
+}
+
+.flower-animation {
+  animation: 
+    rotate 4s linear infinite,
+    scale 2s ease-in-out infinite;
+}
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}

@@ -1,0 +1,152 @@
+/* RegistrationForm.css */
+:root {
+  --primary-pink: #ff99cc;
+  --secondary-pink: #ffb3d9;
+  --menu-bg: #fff0f5;
+}
+
+
+.top-menu nav {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+ 
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin:0 auto;
+  background: var(--menu-bg);
+  padding:0 20px;
+  box-shadow: 0 2px 10px rgba(255, 153, 204, 0.1);
+  z-index: 1000;
+}
+
+/*
+.top-menu nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+  */
+
+/* Centered Form Container */
+.registration-container {
+  max-width: 500px;
+  margin: 6rem auto 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 4px 15px rgba(255, 153, 204, 0.3); /* Add shadow like homepage */
+  
+}
+
+
+
+
+/* Heading with Flowers */
+.registration-container h2 {
+  text-align: center;
+  color: var(--primary-pink);
+  margin: 0 0 2rem 0;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.registration-container h2::before,
+.registration-container h2::after {
+  content: '🌸';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+}
+
+.registration-container h2::before { left: -10px; }
+.registration-container h2::after { right: -10px; }
+
+/* Centered Smaller Inputs */
+.form-group {
+  margin: 1.5rem auto;
+  max-width: 280px;
+}
+
+.form-group label {
+  display: block;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid #ffe6ee;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Left/Right Role Buttons */
+.role-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 280px;
+  margin: 2rem auto;
+}
+
+.role-buttons button {
+  width: 48%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 25px;
+  background: #ffe6f4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.role-buttons button.active {
+  background: var(--primary-pink);
+  color: white;
+}
+
+/* Centered Register Button */
+.submit-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Login Link */
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .registration-container h2::before,
+  .registration-container h2::after {
+    display: none;
+  }
+  
+  .role-buttons {
+    flex-direction: column;
+  }
+  
+  .role-buttons button {
+    width: 100%;
+  }
+}
+

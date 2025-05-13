@@ -1,0 +1,221 @@
+/* Navigation.css */
+.nav-container {
+  background-color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(255, 153, 204, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid rgba(255, 153, 204, 0.2);
+}
+
+.nav-logo a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: var(--primary-pink);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.logo-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.logo-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 1rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #666;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--primary-pink);
+  background-color: rgba(255, 153, 204, 0.1);
+}
+
+.nav-icon {
+  margin-right: 0.5rem;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-pink);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 1rem;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    top: 70px;
+    left: 0;
+    padding: 1rem 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    clip-path: circle(0px at top right);
+    transition: clip-path 0.5s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .nav-links.active {
+    clip-path: circle(1000px at top right);
+    pointer-events: all;
+  }
+  
+  .nav-links li {
+    margin: 0.5rem 1rem;
+  }
+  
+  .nav-links li a {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Animation for active link highlight */
+.nav-links li a.active {
+  color: var(--primary-pink);
+  background-color: rgba(255, 153, 204, 0.1);
+  position: relative;
+}
+
+.nav-links li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 3px;
+  background-color: var(--primary-pink);
+  border-radius: 3px;
+}
+
+/* Add to existing Navigation.css */
+.profile-dropdown {
+position: relative;
+cursor: pointer;
+}
+
+.profile-dropdown span {
+margin-left: 0.5rem;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+right: 0;
+top: 100%;
+background: white;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+padding: 0.5rem;
+min-width: 120px;
+z-index: 100;
+}
+
+.profile-dropdown:hover .dropdown-content {
+display: block;
+}
+
+.dropdown-content button {
+width: 100%;
+padding: 0.5rem;
+border: none;
+background: none;
+cursor: pointer;
+color: #ff6b6b;
+text-align: left;
+}
+
+.dropdown-content button:hover {
+background: #fff0f0;
+}
+
+/* Role-based link visibility */
+.nav-links li[hidden] {
+display: none;
+}
+
+/* Add to Navigation.css */
+.user-info {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.username {
+color: var(--primary-pink);
+font-weight: 500;
+font-size: 0.9rem;
+}
+
+.profile-dropdown {
+position: relative;
+display: flex;
+align-items: center;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+top: 100%;
+right: 0;
+background: white;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+padding: 0.5rem;
+min-width: 120px;
+}
+
+.profile-dropdown:hover .dropdown-content {
+display: block;
+}
+
+.dropdown-content button {
+width: 100%;
+padding: 0.5rem;
+border: none;
+background: none;
+cursor: pointer;
+color: var(--primary-pink);
+text-align: left;
+}
+
+.dropdown-content button:hover {
+background: rgba(255, 153, 204, 0.1);
+}
